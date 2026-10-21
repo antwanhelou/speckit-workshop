@@ -26,13 +26,13 @@ description: "Implementation tasks for the Task List feature"
 
 **Purpose**: Create the planned application scaffold and runtime scripts.
 
-- [ ] T001 Scaffold the React + TypeScript + Vite application and lock its dependencies with the planned entry point and source structure in `package.json`, `package-lock.json`, `vite.config.ts`, `tsconfig.json`, `index.html`, and `src/main.tsx`
+- [X] T001 Scaffold the React + TypeScript + Vite application and lock its dependencies with the planned entry point and source structure in `package.json`, `package-lock.json`, `vite.config.ts`, `tsconfig.json`, `index.html`, and `src/main.tsx`
 
 ## Phase 2: Foundational (Blocking Prerequisites)
 
 **Purpose**: Configure the required automated-test infrastructure before story implementation.
 
-- [ ] T002 Configure Vitest with jsdom, React Testing Library, `user-event`, `jest-dom`, test scripts, and test initialization in `package.json`, `vite.config.ts`, and `src/test/setup.ts`
+- [X] T002 Configure Vitest with jsdom, React Testing Library, `user-event`, `jest-dom`, test scripts, and test initialization in `package.json`, `vite.config.ts`, and `src/test/setup.ts`
 
 **Checkpoint**: The application scaffold and test environment are ready before user-story work begins.
 
@@ -44,16 +44,16 @@ description: "Implementation tasks for the Task List feature"
 
 ### Tests for User Story 1
 
-- [ ] T003 [P] [US1] Test valid one-character and ordinary titles, empty and whitespace-only (including tabs), trimming with internal whitespace preserved, exact 80-character acceptance and 81-character rejection after trimming, surrounding whitespace excluded from length, and composed/decomposed accents plus emoji/ZWJ grapheme counting in `src/test/taskTitle.test.ts`
-- [ ] T004 [P] [US1] Test invalid blank and over-80-character submissions show validation feedback, add no task, and retain input; test successful add rendering an incomplete task, clearing input only after successful save, and adding equal titles as separate tasks with distinct IDs in `src/test/App.test.tsx`
-- [ ] T005 [P] [US1] Test that writing a candidate task list serializes the ordered records without merging duplicate titles in `src/test/taskStorage.test.ts`
+- [X] T003 [P] [US1] Test valid one-character and ordinary titles, empty and whitespace-only (including tabs), trimming with internal whitespace preserved, exact 80-character acceptance and 81-character rejection after trimming, surrounding whitespace excluded from length, and composed/decomposed accents plus emoji/ZWJ grapheme counting in `src/test/taskTitle.test.ts`
+- [X] T004 [P] [US1] Test invalid blank and over-80-character submissions show validation feedback, add no task, and retain input; test successful add rendering an incomplete task, clearing input only after successful save, and adding equal titles as separate tasks with distinct IDs in `src/test/App.test.tsx`
+- [X] T005 [P] [US1] Test that writing a candidate task list serializes the ordered records without merging duplicate titles in `src/test/taskStorage.test.ts`
 
 ### Implementation for User Story 1
 
-- [ ] T006 [P] [US1] Implement title trimming and 1–80 grapheme validation using `Intl.Segmenter` in `src/taskTitle.ts`
-- [ ] T007 [P] [US1] Define the `Task` type with independent `id`, trimmed `title`, and `completed` fields, and implement serialization and the stable-key `localStorage` writer for ordered task records in `src/taskStorage.ts`
-- [ ] T008 [US1] Implement controlled title entry, validation feedback, task creation with an independent `crypto.randomUUID()` ID, successful-save input clearing, and add coordination in `src/components/TaskForm.tsx` and `src/App.tsx`
-- [ ] T009 [US1] Render the ordered task titles and incomplete state in `src/components/TaskList.tsx`
+- [X] T006 [P] [US1] Implement title trimming and 1–80 grapheme validation using `Intl.Segmenter` in `src/taskTitle.ts`
+- [X] T007 [P] [US1] Define the `Task` type with independent `id`, trimmed `title`, and `completed` fields, and implement serialization and the stable-key `localStorage` writer for ordered task records in `src/taskStorage.ts`
+- [X] T008 [US1] Implement controlled title entry, validation feedback, task creation with an independent `crypto.randomUUID()` ID, successful-save input clearing, and add coordination in `src/components/TaskForm.tsx` and `src/App.tsx`
+- [X] T009 [US1] Render the ordered task titles and incomplete state in `src/components/TaskList.tsx`
 
 **Checkpoint**: A valid submission creates and displays an independent incomplete task; invalid input does not add a task.
 
@@ -65,11 +65,11 @@ description: "Implementation tasks for the Task List feature"
 
 ### Tests for User Story 2
 
-- [ ] T010 [US2] Test completion and undo, including duplicate titles with distinct IDs, that only the selected task changes, other records and order remain unchanged, and completion has a non-color visual indicator in `src/test/App.test.tsx`
+- [X] T010 [US2] Test completion and undo, including duplicate titles with distinct IDs, that only the selected task changes, other records and order remain unchanged, and completion has a non-color visual indicator in `src/test/App.test.tsx`
 
 ### Implementation for User Story 2
 
-- [ ] T011 [US2] Add per-task completion toggling by ID and a textual completed indicator with non-color styling in `src/components/TaskList.tsx`, `src/App.tsx`, and `src/App.css`
+- [X] T011 [US2] Add per-task completion toggling by ID and a textual completed indicator with non-color styling in `src/components/TaskList.tsx`, `src/App.tsx`, and `src/App.css`
 
 **Checkpoint**: Completion and undo work independently for each task and preserve the rest of the list.
 
@@ -81,14 +81,14 @@ description: "Implementation tasks for the Task List feature"
 
 ### Tests for User Story 3
 
-- [ ] T012 [P] [US3] Test missing storage as an empty list and valid saved JSON restoring task IDs, titles, order, duplicate titles, and completion flags; verify writes preserve the complete ordered records in `src/test/taskStorage.test.ts`
-- [ ] T013 [P] [US3] Test app startup rendering restored records and the normal empty state when no storage key exists in `src/test/App.test.tsx`
+- [X] T012 [P] [US3] Test missing storage as an empty list and valid saved JSON restoring task IDs, titles, order, duplicate titles, and completion flags; verify writes preserve the complete ordered records in `src/test/taskStorage.test.ts`
+- [X] T013 [P] [US3] Test app startup rendering restored records and the normal empty state when no storage key exists in `src/test/App.test.tsx`
 
 ### Implementation for User Story 3
 
-- [ ] T014 [US3] Implement storage loading and record validation, requiring each record to have a unique non-empty ID, an already-trimmed title of 1–80 grapheme characters, and a boolean completion value, in `src/taskStorage.ts`
-- [ ] T015 [US3] Load persisted tasks at app startup and show the clear no-tasks empty state when the list is empty in `src/App.tsx`
-- [ ] T016 [US3] Perform the manual browser refresh check for task order and mixed completion states described in `specs/001-task-list/quickstart.md`
+- [X] T014 [US3] Implement storage loading and record validation, requiring each record to have a unique non-empty ID, an already-trimmed title of 1–80 grapheme characters, and a boolean completion value, in `src/taskStorage.ts`
+- [X] T015 [US3] Load persisted tasks at app startup and show the clear no-tasks empty state when the list is empty in `src/App.tsx`
+- [X] T016 [US3] Perform the manual browser refresh check for task order and mixed completion states described in `specs/001-task-list/quickstart.md`
 
 **Checkpoint**: Previously saved tasks reload with their original order, identity, title, and completion state.
 
@@ -100,11 +100,11 @@ description: "Implementation tasks for the Task List feature"
 
 ### Tests for User Story 4
 
-- [ ] T017 [US4] Test failed add and completion writes preserve the prior list, completion state, stored value, and entered title; verify actionable errors and successful retry behavior in `src/test/App.test.tsx`
+- [X] T017 [US4] Test failed add and completion writes preserve the prior list, completion state, stored value, and entered title; verify actionable errors and successful retry behavior in `src/test/App.test.tsx`
 
 ### Implementation for User Story 4
 
-- [ ] T018 [US4] Write each candidate list before committing it to React state, retain the input on failed add, retain prior completion state on failure, and display a retry-oriented save error in `src/App.tsx` and `src/taskStorage.ts`
+- [X] T018 [US4] Write each candidate list before committing it to React state, retain the input on failed add, retain prior completion state on failure, and display a retry-oriented save error in `src/App.tsx` and `src/taskStorage.ts`
 
 **Checkpoint**: No failed save is displayed as committed, and user-entered text is not lost.
 
@@ -116,14 +116,14 @@ description: "Implementation tasks for the Task List feature"
 
 ### Tests for User Story 5
 
-- [ ] T019 [P] [US5] Test storage read exceptions, malformed JSON, and invalid record shapes enter an unreadable state without changing the raw stored value in `src/test/taskStorage.test.ts`
-- [ ] T020 [P] [US5] Test recovery blocks normal mutations, reset cancellation preserves unreadable data, confirmed reset writes an empty list, and reset write failure remains in recovery without overwriting the raw value in `src/test/App.test.tsx`
+- [X] T019 [P] [US5] Test storage read exceptions, malformed JSON, and invalid record shapes enter an unreadable state without changing the raw stored value in `src/test/taskStorage.test.ts`
+- [X] T020 [P] [US5] Test recovery blocks normal mutations, reset cancellation preserves unreadable data, confirmed reset writes an empty list, and reset write failure remains in recovery without overwriting the raw value in `src/test/App.test.tsx`
 
 ### Implementation for User Story 5
 
-- [ ] T021 [US5] Implement the recovery message and explicit reset-confirmation UI with confirm and cancel actions in `src/components/RecoveryPanel.tsx`
-- [ ] T022 [US5] Distinguish unreadable storage from an empty list, block normal mutations until recovery, and announce recovery and reset failures in `src/App.tsx`
-- [ ] T023 [US5] Implement confirmed empty-list persistence and preserve recovery state when the reset write fails in `src/App.tsx` and `src/taskStorage.ts`
+- [X] T021 [US5] Implement the recovery message and explicit reset-confirmation UI with confirm and cancel actions in `src/components/RecoveryPanel.tsx`
+- [X] T022 [US5] Distinguish unreadable storage from an empty list, block normal mutations until recovery, and announce recovery and reset failures in `src/App.tsx`
+- [X] T023 [US5] Implement confirmed empty-list persistence and preserve recovery state when the reset write fails in `src/App.tsx` and `src/taskStorage.ts`
 
 **Checkpoint**: Unreadable saved data remains untouched unless the user confirms reset and that write succeeds.
 
@@ -135,14 +135,14 @@ description: "Implementation tasks for the Task List feature"
 
 ### Tests for User Story 6
 
-- [ ] T024 [US6] Test accessible names, logical keyboard navigation, Enter form submission, keyboard task toggling, visible completion text, and announced validation, save, and recovery status messages in `src/test/App.test.tsx`
+- [X] T024 [US6] Test accessible names, logical keyboard navigation, Enter form submission, keyboard task toggling, visible completion text, and announced validation, save, and recovery status messages in `src/test/App.test.tsx`
 
 ### Implementation for User Story 6
 
-- [ ] T025 [US6] Provide a labeled title input, named submit control, and announced validation and save-feedback regions in `src/components/TaskForm.tsx` and `src/App.tsx`
-- [ ] T026 [US6] Provide purpose-specific accessible names for each task completion control and retain a textual completion indicator in `src/components/TaskList.tsx`
-- [ ] T027 [US6] Make recovery and reset confirmation controls clearly named and keyboard-operable in `src/components/RecoveryPanel.tsx`
-- [ ] T028 [US6] Add visible keyboard focus and accessible status styling without color-only meaning in `src/App.css`
+- [X] T025 [US6] Provide a labeled title input, named submit control, and announced validation and save-feedback regions in `src/components/TaskForm.tsx` and `src/App.tsx`
+- [X] T026 [US6] Provide purpose-specific accessible names for each task completion control and retain a textual completion indicator in `src/components/TaskList.tsx`
+- [X] T027 [US6] Make recovery and reset confirmation controls clearly named and keyboard-operable in `src/components/RecoveryPanel.tsx`
+- [X] T028 [US6] Add visible keyboard focus and accessible status styling without color-only meaning in `src/App.css`
 
 **Checkpoint**: All controls and messages are accessible, and the full workflow is keyboard-operable.
 
@@ -150,11 +150,11 @@ description: "Implementation tasks for the Task List feature"
 
 **Purpose**: Document app usage and verify the planned quality gates.
 
-- [ ] T029 Write a concise beginner-oriented setup, run, test, and recovery overview in `README.md`
-- [ ] T030 Add the TypeScript typecheck command to the project scripts in `package.json`
-- [ ] T031 Run the configured typecheck and resolve TypeScript errors using `tsconfig.json`
-- [ ] T032 Run the complete Vitest suite with `npm test -- --run` using the script in `package.json`
-- [ ] T033 Run the production build with `npm run build` using the build configuration in `vite.config.ts`
+- [X] T029 Write a concise beginner-oriented setup, run, test, and recovery overview in `README.md`
+- [X] T030 Add the TypeScript typecheck command to the project scripts in `package.json`
+- [X] T031 Run the configured typecheck and resolve TypeScript errors using `tsconfig.json`
+- [X] T032 Run the complete Vitest suite with `npm test -- --run` using the script in `package.json`
+- [X] T033 Run the production build with `npm run build` using the build configuration in `vite.config.ts`
 
 ## Dependencies & Execution Order
 

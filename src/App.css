@@ -1,0 +1,88 @@
+body {
+  font-family: system-ui, sans-serif;
+  background: #f5f5f7;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+main {
+  max-width: 32rem;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.row input {
+  flex: 1;
+}
+
+input[type="text"],
+button {
+  font: inherit;
+  padding: 0.5rem;
+}
+
+:focus-visible {
+  outline: 3px solid #1d4ed8;
+  outline-offset: 2px;
+}
+
+.error {
+  color: #b00020;
+  font-weight: 600;
+}
+
+.recovery {
+  border: 2px solid #b00020;
+  background: #fff;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tasks {
+  list-style: none;
+  padding: 0;
+}
+
+.tasks li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #ccc;
+}
+
+.tasks label {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-weight: 400;
+  margin: 0;
+}
+
+.tasks li.done .title {
+  text-decoration: line-through;
+  color: #555;
+}
+
+.badge {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #14532d;
+}
+
+.empty {
+  color: #444;
+}
