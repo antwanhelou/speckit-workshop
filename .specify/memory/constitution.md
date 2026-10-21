@@ -1,50 +1,79 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+Version change: unratified → 1.0.0 (initial adoption)
+Modified principles: none
+Added principles: I. Simplicity; II. Accessible Interaction; III. Validated Input and
+Actionable Errors; IV. Safe Persistence; V. Behavior-Focused Tests; VI. Spec-to-Code
+Consistency
+Added sections: Scope and Constraints; Development Workflow
+Removed sections: none
+Follow-up TODOs: none
+-->
+# Task-List Application Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Simplicity
+The application MUST remain small and understandable to entry-level engineers.
+Dependencies and abstractions MUST be limited to those needed for agreed behavior,
+and each additional dependency or abstraction MUST have a documented justification.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Accessible Interaction
+Every interactive control MUST have an accessible name or label that communicates
+its purpose. All functionality MUST be operable using a keyboard, with visible focus
+and a logical focus order.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Validated Input and Actionable Errors
+The application MUST validate user input before changing or saving task data. When
+input is invalid or an operation fails, it MUST explain what happened and give the
+user a clear next step. Errors MUST NOT be silently discarded.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Safe Persistence
+If saving fails, the application MUST preserve the user's current in-memory data
+and MUST NOT replace or delete the last successfully stored data. If stored data
+cannot be read or parsed, the application MUST report that condition explicitly,
+preserve the unreadable data, and provide a recovery choice; it MUST NOT silently
+treat the data as empty or overwrite it without user direction.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Behavior-Focused Tests
+Automated tests MUST cover agreed application behavior and relevant edge cases,
+including validation, persistence failures, unreadable stored data, and accessible
+keyboard interactions where applicable. Tests MUST be updated when agreed behavior
+changes.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### VI. Spec-to-Code Consistency
+Specifications, technical plans, implementation tasks, tests, and code MUST describe
+the same agreed behavior. Changes that make them inconsistent MUST update the
+affected artifacts in the same change; unresolved differences MUST be surfaced
+before implementation proceeds.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+## Scope and Constraints
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+This project teaches Spec-Driven Development by building a small task-list
+application. The application MUST remain within that teaching scope. No particular
+framework, storage mechanism, or architecture is mandated by this constitution;
+choices MUST satisfy the core principles and be justified by the agreed requirements.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Development Workflow
+
+Work MUST progress from agreed specification to technical plan, implementation
+tasks, and implementation. Each stage MUST use the preceding agreed artifacts,
+record decisions needed by the next stage, and keep relevant tests aligned with
+the specified behavior. Scope changes MUST be reflected in affected artifacts
+before implementation relies on them.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution governs project specifications, plans, tasks, implementation,
+and review. Amendments MUST be proposed as explicit changes, reviewed and approved
+by the project owner, and reflected in any affected project artifacts. Every
+specification, plan, task list, implementation, and review MUST check compliance;
+any requested exception MUST be documented and approved before it is applied.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+Constitution versions follow semantic versioning. A MAJOR increment is required
+for backward-incompatible governance changes or removal/redefinition of a
+principle. A MINOR increment is required for a new principle or materially expanded
+guidance. A PATCH increment is required for clarifications and non-semantic
+wording corrections.
+
+**Version**: 1.0.0 | **Ratified**: 2026-10-21 | **Last Amended**: 2026-10-21
