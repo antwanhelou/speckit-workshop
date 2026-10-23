@@ -205,3 +205,13 @@ integrate them in src/components/TaskForm.tsx and src/App.tsx afterward.
 1. Add completion and undo (US2), then persistence and the manual refresh check (US3).
 2. Add safe save-failure behavior (US4) and unreadable-data recovery (US5).
 3. Complete cross-cutting accessibility checks (US6), README, typecheck, test, and production-build verification.
+
+## Phase 10: Convergence
+
+- [ ] T034 Move keyboard focus to a sensible control when the reset confirmation opens, is cancelled, or is confirmed (the triggering button is currently removed, dropping focus to the page start) in `src/components/RecoveryPanel.tsx`, and add a keyboard focus test in `src/test/App.test.tsx` per FR-016 / US6/AC1 (partial)
+- [ ] T035 Add tests for composed vs. decomposed accents, a one-character title, and preserved internal whitespace in `src/test/taskTitle.test.ts` per US1/AC3, Edge Cases, Constitution V (partial)
+- [ ] T036 Add tests that a failed add or toggle leaves the stored value unchanged and that a successful retry clears the error (and the input when adding) in `src/test/App.test.tsx` per US4/AC3, SC-004 (partial)
+- [ ] T037 Add a test that completing one of several tasks leaves the other tasks' order and state unchanged in `src/test/App.test.tsx` per US2/AC4 (partial)
+- [ ] T038 Add a test that startup restores multiple tasks with duplicate titles, mixed completion and original order in `src/test/App.test.tsx` per US3/AC1, US3/AC2, SC-003 (partial)
+- [ ] T039 Extend the failed-reset test to assert the raw unreadable value is unchanged, and add a test that completion toggling is blocked during recovery in `src/test/App.test.tsx` per US5/AC2, SC-005 (partial)
+- [ ] T040 Make the reset confirmation text state that saved tasks will be discarded in `src/components/RecoveryPanel.tsx` per US5/AC3 (partial)
